@@ -1,1 +1,142 @@
-429: Too Many Requests
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <title>Mini Tutorial Python</title>
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #1e1e1e;
+      color: #f5f5f5;
+      line-height: 1.6;
+      padding: 20px;
+    }
+    h1, h2 {
+      color: #00e0ff;
+    }
+    pre {
+      background: #2e2e2e;
+      padding: 10px;
+      border-radius: 8px;
+      overflow-x: auto;
+    }
+    button {
+      margin-top: 5px;
+      padding: 6px 12px;
+      border: none;
+      border-radius: 5px;
+      background: #00e0ff;
+      color: #000;
+      cursor: pointer;
+      font-weight: bold;
+    }
+    button:hover {
+      background: #00c4d6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Mini Tutorial Python 🚀</h1>
+
+  <h2>1. Print</h2>
+  <p>O <code>print()</code> mostra algo no console:</p>
+  <pre>
+print("Olá, mundo!")</pre>
+  <button onclick="runExample('print')">Rodar exemplo</button>
+  <pre id="output-print"></pre>
+
+  <h2>2. Funções</h2>
+  <p>Funções executam blocos de código:</p>
+  <pre>
+def saudacao(nome):
+    return f"Olá, {nome}!"
+</pre>
+  <button onclick="runExample('function')">Rodar exemplo</button>
+  <pre id="output-function"></pre>
+
+  <h2>3. Lambdas</h2>
+  <p>Funções anônimas e curtas:</p>
+  <pre>
+dobro = lambda x: x * 2
+print(dobro(5))</pre>
+  <button onclick="runExample('lambda')">Rodar exemplo</button>
+  <pre id="output-lambda"></pre>
+
+  <h2>4. Classes</h2>
+  <p>Objetos com atributos e métodos:</p>
+  <pre>
+class Pessoa:
+    def __init__(self, nome):
+        self.nome = nome
+    def falar(self):
+        return f"Oi, meu nome é {self.nome}"</pre>
+  <button onclick="runExample('class')">Rodar exemplo</button>
+  <pre id="output-class"></pre>
+
+  <h2>5. Módulos</h2>
+  <p>Reutilização de código em arquivos separados:</p>
+  <pre>
+# arquivo: meu_modulo.py
+def soma(a, b):
+    return a + b
+</pre>
+  <button onclick="runExample('module')">Rodar exemplo</button>
+  <pre id="output-module"></pre>
+
+  <h2>6. Tratamento de erros</h2>
+  <p>Evita que seu código quebre:</p>
+  <pre>
+try:
+    x = int("abc")
+except ValueError:
+    print("Erro: não é número!")</pre>
+  <button onclick="runExample('error')">Rodar exemplo</button>
+  <pre id="output-error"></pre>
+
+  <script>
+    function runExample(type) {
+      let output = "";
+      switch(type) {
+        case 'print':
+          output = "Olá, mundo!";
+          document.getElementById("output-print").innerText = output;
+          break;
+        case 'function':
+          function saudacao(nome){ return `Olá, ${nome}!`; }
+          output = saudacao("Lucas");
+          document.getElementById("output-function").innerText = output;
+          break;
+        case 'lambda':
+          let dobro = x => x*2;
+          output = dobro(5);
+          document.getElementById("output-lambda").innerText = output;
+          break;
+        case 'class':
+          class Pessoa {
+            constructor(nome){ this.nome = nome; }
+            falar(){ return `Oi, meu nome é ${this.nome}`; }
+          }
+          let p = new Pessoa("Lucas");
+          output = p.falar();
+          document.getElementById("output-class").innerText = output;
+          break;
+        case 'module':
+          function soma(a,b){ return a+b; }
+          output = soma(5,7);
+          document.getElementById("output-module").innerText = output;
+          break;
+        case 'error':
+          try{
+            let x = parseInt("abc");
+            if(isNaN(x)) throw "Erro: não é número!";
+            output = x;
+          } catch(e){
+            output = e;
+          }
+          document.getElementById("output-error").innerText = output;
+          break;
+      }
+    }
+  </script>
+</body>
+</html>
